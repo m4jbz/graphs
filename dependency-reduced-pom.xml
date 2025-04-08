@@ -7,51 +7,8 @@
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>${maven.compiler.release}</release>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-maven-plugin</artifactId>
-        <version>0.0.8</version>
-        <configuration>
-          <mainClass>${exec.mainClass}</mainClass>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.1.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <mainClass>${exec.mainClass}</mainClass>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.2.0</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>${exec.mainClass}</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-      <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.4</version>
+        <version>3.4.1</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -61,18 +18,33 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>${exec.mainClass}</mainClass>
+                  <mainClass>iti.informatica.graph.Graph</mainClass>
                 </transformer>
               </transformers>
             </configuration>
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
+        <configuration>
+          <mainClass>${main.class}</mainClass>
+          <launcher>${app.launcher}</launcher>
+          <jlinkImageName>${app.launcher}</jlinkImageName>
+          <jlinkZipName>${app.launcher}</jlinkZipName>
+          <noManPages>true</noManPages>
+          <stripDebug>true</stripDebug>
+          <noHeaderFiles>true</noHeaderFiles>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <properties>
-    <maven.compiler.release>11</maven.compiler.release>
-    <exec.mainClass>iti.informatica.graph.Graph</exec.mainClass>
+    <maven.compiler.release>21</maven.compiler.release>
+    <main.class>iti.informatica.graph.Graph</main.class>
+    <app.launcher>graph-app</app.launcher>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <javafx.version>17.0.1</javafx.version>
   </properties>

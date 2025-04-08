@@ -1,2 +1,2 @@
-JAVA_VERSION="11.0.25"
+JAVA_VERSION="21.0.6"
 MODULES="java.base java.datatransfer java.xml java.prefs java.desktop javafx.base jdk.unsupported javafx.graphics javafx.controls java.scripting javafx.fxml iti.informatica.graph"

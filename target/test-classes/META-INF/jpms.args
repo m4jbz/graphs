@@ -1,4 +1,0 @@
---patch-module
-iti.informatica.graph=_
---add-reads
-iti.informatica.graph=ALL-UNNAMED
